@@ -24,6 +24,10 @@ def sent_analyzer():
     label = response['label']
     score = response['score']
 
+    if label == "None":
+        # If the label is "None", return a message indicating that the text is not valid
+        return "The text provided is not valid. Please try again."
+
     # Return a formatted string with the sentiment label and score
     return "The given text has been identified as {} with a score of {}.".format(label.split('_')[1], score)
 
